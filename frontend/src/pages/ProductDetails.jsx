@@ -20,12 +20,12 @@ const ProductDetails = () => {
   }, [id]);
 
   const fetchProduct = async () => {
-    const { data } = await axios.get(`http://localhost:5000/api/products/${id}`);
+    const { data } = await axios.get(`https://shopease-ecommerce-ruddy.vercel.app/api/products/${id}`);
     setProduct(data);
   };
 
   const fetchReviews = async () => {
-    const { data } = await axios.get(`http://localhost:5000/api/reviews/${id}`);
+    const { data } = await axios.get(`https://shopease-ecommerce-ruddy.vercel.app/api/reviews/${id}`);
     setReviews(data);
   };
 
@@ -34,7 +34,7 @@ const ProductDetails = () => {
     if (!user) return alert("Please login");
     try {
       await axios.post(
-        `http://localhost:5000/api/reviews/${id}`,
+        `https://shopease-ecommerce-ruddy.vercel.app/api/reviews/${id}`,
         { rating, comment },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

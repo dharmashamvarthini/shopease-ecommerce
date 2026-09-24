@@ -24,7 +24,7 @@ const AdminProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/products");
+      const { data } = await axios.get("https://shopease-ecommerce-ruddy.vercel.app/api/products");
       setProducts(data);
     } catch (error) {
       console.error(error);
@@ -40,13 +40,13 @@ const AdminProducts = () => {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/products/${editingId}`,
+          `https://shopease-ecommerce-ruddy.vercel.app/api/products/${editingId}`,
           form,
           config
         );
         setEditingId(null);
       } else {
-        await axios.post("http://localhost:5000/api/products", form, config);
+        await axios.post("https://shopease-ecommerce-ruddy.vercel.app/api/products", form, config);
       }
       setForm({
         name: "",
@@ -79,7 +79,7 @@ const AdminProducts = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Delete this product?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`, config);
+        await axios.delete(`https://shopease-ecommerce-ruddy.vercel.app/api/products/${id}`, config);
         fetchProducts();
         alert("Product deleted");
       } catch (error) {

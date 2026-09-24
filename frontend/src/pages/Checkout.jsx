@@ -32,7 +32,7 @@ const Checkout = () => {
       }));
 
       await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/orders",
         {
           orderItems,
           shippingAddress: address,
@@ -67,7 +67,7 @@ const Checkout = () => {
       }));
 
       const { data: dbOrder } = await axios.post(
-        "http://localhost:5000/api/orders",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/orders",
         {
           orderItems,
           shippingAddress: address,
@@ -79,7 +79,7 @@ const Checkout = () => {
 
       // 2. Create mock payment order
       const { data: mockOrder } = await axios.post(
-        "http://localhost:5000/api/payment/create-order",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/payment/create-order",
         { amount: totalPrice },
         config
       );
@@ -89,7 +89,7 @@ const Checkout = () => {
 
       // 4. Verify mock payment
       await axios.post(
-        "http://localhost:5000/api/payment/verify",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/payment/verify",
         {
           orderId: dbOrder._id,
           mockOrderId: mockOrder.id,

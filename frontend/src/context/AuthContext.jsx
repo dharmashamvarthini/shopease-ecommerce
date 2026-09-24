@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/auth/register",
         { name, email, password, role }
       );
       setUser(data);
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/auth/login",
         { email, password }
       );
       setUser(data);

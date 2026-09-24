@@ -9,7 +9,7 @@ const Wishlist = () => {
   const config = { headers: { Authorization: `Bearer ${user?.token}` } };
 
   const fetchWishlist = async () => {
-    const { data } = await axios.get("http://localhost:5000/api/wishlist", config);
+    const { data } = await axios.get("https://shopease-ecommerce-ruddy.vercel.app/api/wishlist", config);
     setWishlist(data);
   };
 
@@ -18,7 +18,7 @@ const Wishlist = () => {
   }, []);
 
   const removeFromWishlist = async (id) => {
-    await axios.delete(`http://localhost:5000/api/wishlist/${id}`, config);
+    await axios.delete(`https://shopease-ecommerce-ruddy.vercel.app/api/wishlist/${id}`, config);
     fetchWishlist();
   };
 

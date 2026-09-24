@@ -27,7 +27,7 @@ const Home = () => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/products?keyword=${keyword}&category=${category}&sort=${sort}`
+        `https://shopease-ecommerce-ruddy.vercel.app/api/products?keyword=${keyword}&category=${category}&sort=${sort}`
       );
       setProducts(data);
     } catch (error) {
@@ -49,7 +49,7 @@ const Home = () => {
     if (!user) return alert("Please login first");
     try {
       await axios.post(
-        "http://localhost:5000/api/wishlist",
+        "https://shopease-ecommerce-ruddy.vercel.app/api/wishlist",
         { productId },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

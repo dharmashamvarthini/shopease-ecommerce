@@ -19,10 +19,10 @@ const AdminDashboard = () => {
         };
 
         const { data: products } = await axios.get(
-          "http://localhost:5000/api/products"
+          "https://shopease-ecommerce-ruddy.vercel.app/api/products"
         );
         const { data: orders } = await axios.get(
-          "http://localhost:5000/api/orders",
+          "https://shopease-ecommerce-ruddy.vercel.app/api/orders",
           config
         );
 
